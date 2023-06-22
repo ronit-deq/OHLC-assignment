@@ -1,5 +1,6 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import React, { useEffect, useState } from "react";
 import Chart from "../ChartComponents/Chart";
 import Tools from "../ChartComponents/Tools";
@@ -7,7 +8,9 @@ import HeaderOHLC from "../ChartComponents/HeaderOHLC";
 import axios from "axios";
 import { timeFrame } from "../../Utils/constants";
 import IndicatorBar from "../ChartComponents/IndicatorBar";
-import FooterOHLC from "../ChartComponents/FooterOHLC";
+const FooterOHLC = dynamic(() => import("../ChartComponents/FooterOHLC"), {
+  ssr: false,
+});
 
 const OhlcChart: React.FC = () => {
   const [selectedTime, setSelectedTime] = useState("1h");
@@ -16,7 +19,7 @@ const OhlcChart: React.FC = () => {
 
   useEffect(() => {
     fetchData(selectedTime);
-  }, []);
+  });
 
   const fetchData = async (time: string) => {
     try {

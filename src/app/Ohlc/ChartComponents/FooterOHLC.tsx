@@ -1,13 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { timeFrame } from "../../Utils/constants";
+import moment from "moment";
 
 const FooterOHLC = ({
   fetchData,
 }: {
   fetchData: (time: string) => Promise<void>;
 }) => {
-  const currTime = new Date().toUTCString();
-
   return (
     <div className="flex flex-row justify-between mx-10 footer px-5 py-4">
       <div className="flex flex-row justify-around">
@@ -27,7 +26,7 @@ const FooterOHLC = ({
       </div>
 
       <div className="flex flex-row footer" color="white">
-        <p className="m-2">{currTime.slice(17)}</p>
+        <p className="m-2">{moment().utc().format("hh:mm:ss (UTC)")}</p>
         <p className="m-2">| %</p>
         <p className="m-2">log</p>
         <p className="m-2">auto</p>
