@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+  background-color: #102331;
+  color: #ccc;
+}
+
+/* Chart */
+
+#chart{
+  height: 78vh;
+  width: 90vw;
+}
+
+.head2>span{
+  font-weight: bold;
+}
+
+.timeframe-button:focus,.timeframe-button:hover{
+  background: #ccc;
+  opacity: 0.4;
+  border-radius: 5%;
+}
+
+.tool-icon{
+  color: grey;
+}
+
+.tool-icon:hover{
+  background: #ccc;
+  opacity: 0.4;
+  border-radius: 5%;
+  color: #000;
+}
+
+.footer{
+  color: grey;
+}
+
+.record-button{
+  border: 3px white solid;
+  margin-left: 2px;
+  margin-bottom: 3px;
+  padding: 5px;
+  font-weight: bold;
+  font-size: small;
+  color: #3C907F;
+}
+
+
+/* Record Book */
+
+.record-book{
+  height: 100vh;
+  padding: 10px;
+}
+
+.progress-green {
+  position: absolute;
+  background-color: rgb(8, 83, 8);
+  top: 0;
+  bottom: 0;
+  right: 0;
+  opacity: 0.2;
+  z-index: -1;
+  transition: width .1s ease-in-out;
+
+}
+
+.progress-red {
+  position: absolute;
+  background-color:rgb(234, 69, 69);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 0.2;
+  z-index: -1;
+  transition: width .1s ease-in-out;
+
+}
+
+
