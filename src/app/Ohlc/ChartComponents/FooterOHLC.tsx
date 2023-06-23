@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { timeFrame } from "../../Utils/constants";
 import moment from "moment";
 
 const FooterOHLC = ({
   fetchData,
 }: {
-  fetchData: (time: string) => Promise<void>;
+  fetchData: Dispatch<SetStateAction<string>>;
 }) => {
   return (
     <div className="flex flex-row justify-between mx-10 footer px-5 py-4">
