@@ -44,6 +44,8 @@ const OhlcChart: React.FC = () => {
 
         setCurrPrice(data[data.length - 1].y);
         setSeries(data);
+      } else {
+        console.log(`HTTP Response Code: ${response?.status}`);
       }
     } catch (error) {
       console.error(error);

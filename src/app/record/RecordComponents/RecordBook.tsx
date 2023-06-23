@@ -5,8 +5,6 @@ import { useRecordParser } from "./Parser";
 
 const RecordBook = () => {
   const [bids, asks] = useRecordParser();
-  // implementing hook
-
   return (
     <div className="flex justify-around">
       <div className=" w-1/2 bid-section">
