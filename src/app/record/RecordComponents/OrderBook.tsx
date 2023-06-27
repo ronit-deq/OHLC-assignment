@@ -1,10 +1,10 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-import { useRecordParser } from "./Parser";
+import React from "react";
+import { useRecordParserHook } from "./useRecordParserHook";
 
-const RecordBook = () => {
-  const [bids, asks] = useRecordParser();
+const OrderBook = () => {
+  const [bids, asks] = useRecordParserHook();
   return (
     <div className="flex justify-around">
       <div className=" w-1/2 bid-section">
@@ -64,4 +64,4 @@ const RecordBook = () => {
   );
 };
 
-export default RecordBook;
+export default OrderBook;

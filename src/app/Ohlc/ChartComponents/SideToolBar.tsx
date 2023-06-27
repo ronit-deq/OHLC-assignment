@@ -7,7 +7,7 @@ import { BsEmojiLaughing, BsMagnet } from "react-icons/bs";
 import { LuRuler } from "react-icons/lu";
 import { AiOutlineZoomIn, AiOutlinePlus } from "react-icons/ai";
 
-const Tools = () => {
+const SideToolBar = () => {
   return (
     <div className="flex flex-col justify-around mt-10">
       <AiOutlinePlus className="tool-icon" size={22} />
@@ -23,4 +23,4 @@ const Tools = () => {
   );
 };
 
-export default Tools;
+export default SideToolBar;

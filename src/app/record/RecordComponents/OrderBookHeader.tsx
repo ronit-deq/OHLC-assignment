@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import {
   BsArrowBarRight,
   BsArrowBarLeft,
@@ -7,9 +8,8 @@ import {
   BsZoomOut,
 } from "react-icons/bs";
 import { AiFillSetting, AiOutlineDown } from "react-icons/ai";
-import Link from "next/link";
 
-const HeaderRecord = () => {
+const OrderBookHeader = () => {
   return (
     <div className="flex flex-row justify-between pt-2 mx-10 my-2">
       <div className="flex flex-row">
@@ -35,4 +35,4 @@ const HeaderRecord = () => {
   );
 };
 
-export default HeaderRecord;
+export default OrderBookHeader;

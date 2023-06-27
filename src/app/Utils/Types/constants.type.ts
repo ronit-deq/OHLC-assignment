@@ -1,7 +1,7 @@
-export interface timeFrameTypes{
+export interface TimeFrameTypes{
     [name:string]:string
 }
 
-export interface apiDataTypes {
+export interface ApiDataTypes {
     [name:string]:number
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import { LuScreenShare } from "react-icons/lu";
 
-const FooterRecord = () => {
+const OrderBookFooter = () => {
   return (
     <div className="flex flex-row justify-between mx-8 footer px-5">
       <div>
@@ -19,4 +19,4 @@ const FooterRecord = () => {
   );
 };
 
-export default FooterRecord;
+export default OrderBookFooter;

@@ -1,16 +1,16 @@
 import React, { Dispatch, SetStateAction } from "react";
-import { timeFrame } from "../../Utils/constants";
+import { TIMEFRAME } from "../../Utils/constants";
 import moment from "moment";
 
-const FooterOHLC = ({
+const OhlcFooter = ({
   fetchData,
 }: {
-  fetchData: Dispatch<SetStateAction<string>>;
+  fetchData: Dispatch<SetStateAction<string>> | any;
 }) => {
   return (
     <div className="flex flex-row justify-between mx-10 footer px-5 py-4">
       <div className="flex flex-row justify-around">
-        {Object.keys(timeFrame).map((item) => {
+        {Object.keys(TIMEFRAME).map((item) => {
           return (
             <button
               key={item}
@@ -35,4 +35,4 @@ const FooterOHLC = ({
   );
 };
 
-export default FooterOHLC;
+export default OhlcFooter;

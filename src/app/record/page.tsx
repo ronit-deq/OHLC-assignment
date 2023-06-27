@@ -1,14 +1,14 @@
 import React from "react";
-import RecordBook from "./RecordComponents/RecordBook";
-import HeaderRecord from "./RecordComponents/HeaderRecord";
-import FooterRecord from "./RecordComponents/FooterRecord";
+import OrderBook from "./RecordComponents/OrderBook";
+import OrderBookHeader from "./RecordComponents/OrderBookHeader";
+import OrderBookFooter from "./RecordComponents/OrderBookFooter";
 
 const page = () => {
   return (
     <div className="flex flex-col justify-between record-book">
-      <HeaderRecord />
-      <RecordBook />
-      <FooterRecord />
+      <OrderBookHeader />
+      <OrderBook />
+      <OrderBookFooter />
     </div>
   );
 };

@@ -18,6 +18,11 @@ const OPTIONS: ApexCharts.ApexOptions | undefined = {
         show: true,
       },
     },
+    yaxis: {
+      lines: {
+        show: true,
+      }
+    }
   },
   plotOptions: {
     candlestick: {
@@ -35,6 +40,8 @@ const OPTIONS: ApexCharts.ApexOptions | undefined = {
   },
   xaxis: {
     type: "datetime",
+    tickAmount:10,
+    
   },
   yaxis: {
     tickAmount: 10,
@@ -45,7 +52,7 @@ const OPTIONS: ApexCharts.ApexOptions | undefined = {
   },
 };
 
-const Chart = ({ series }: ChartProps) => {
+const CandleStickChart = ({ series }: ChartProps) => {
   return (
     <div id="chart">
       {series.length > 0 ? (
@@ -63,4 +70,4 @@ const Chart = ({ series }: ChartProps) => {
   );
 };
 
-export default Chart;
+export default CandleStickChart;
