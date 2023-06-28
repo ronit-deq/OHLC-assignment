@@ -20,6 +20,7 @@ const OhlcHeader = () => {
         <FaCaretUp color="white" className="m-1" />
         <FaCaretDown color="white" className="m-1" />
         <BiRefresh color="#ccc" className="m-1" />
+        {/* hard code */}
         <button className="record-button">
           <Link href="/record">RECORD BOOK</Link>
         </button>

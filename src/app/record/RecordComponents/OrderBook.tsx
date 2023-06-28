@@ -1,10 +1,10 @@
 "use client";
 
 import React from "react";
-import { useRecordParserHook } from "./useRecordParserHook";
+import { useOrderParserHook } from "./useOrderParserHook";
 
 const OrderBook = () => {
-  const [bids, asks] = useRecordParserHook();
+  const [bids, asks] = useOrderParserHook();
   return (
     <div className="flex justify-around">
       <div className=" w-1/2 bid-section">
@@ -22,11 +22,8 @@ const OrderBook = () => {
           >
             <div
               className="progress-green"
-              style={{
-                width: `${(bid.total * 10) / 4}%`,
-              }}
+              style={{ width: `${(bid.total * 10) / 4}%` }}
             ></div>
-
             <div className="text-center w-2">{bid.count}</div>
             <div className="text-center w-2">{bid.amount.toFixed(4)}</div>
             <div className="text-center w-2">{bid.total.toFixed(4)}</div>
@@ -49,9 +46,7 @@ const OrderBook = () => {
           >
             <div
               className="progress-red"
-              style={{
-                width: `${Math.abs(ask.total * 10) / 4}%`,
-              }}
+              style={{ width: `${Math.abs(ask.total * 10) / 4}%` }}
             ></div>
             <div className="text-center w-2">{ask.price}</div>
             <div className="text-center w-2">{ask.total.toFixed(4)}</div>

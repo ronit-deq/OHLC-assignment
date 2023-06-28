@@ -3,9 +3,9 @@ import { TIMEFRAME } from "../../Utils/constants";
 import moment from "moment";
 
 const OhlcFooter = ({
-  fetchData,
+  setSelectedItem,
 }: {
-  fetchData: Dispatch<SetStateAction<string>> | any;
+  setSelectedItem: Dispatch<SetStateAction<string>> | any;
 }) => {
   return (
     <div className="flex flex-row justify-between mx-10 footer px-5 py-4">
@@ -15,7 +15,7 @@ const OhlcFooter = ({
             <button
               key={item}
               onClick={() => {
-                fetchData(item);
+                setSelectedItem(item);
               }}
               className="timeframe-button"
             >

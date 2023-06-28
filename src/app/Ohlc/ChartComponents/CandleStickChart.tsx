@@ -1,58 +1,53 @@
-import dynamic from "next/dynamic";
 import React from "react";
-
+import dynamic from "next/dynamic";
+import { CandleStickChartProps } from "@/app/Utils/Types/constants.type";
 const ReactApexChart = dynamic(() => import("react-apexcharts"), {
   ssr: false,
 });
 
-interface ChartProps {
-  series: number[];
-}
-
-const OPTIONS: ApexCharts.ApexOptions | undefined = {
-  grid: {
-    show: true,
-    borderColor: "#90A4AE",
-    xaxis: {
-      lines: {
-        show: true,
+const CandleStickChart = ({ series, tooltipValues }: CandleStickChartProps) => {
+  const OPTIONS: ApexCharts.ApexOptions | undefined = {
+    chart: {
+      foreColor: "#ccc",
+      events: {
+        mouseMove: tooltipValues,
       },
+    },
+    grid: {
+      borderColor: "#90A4AE",
+      xaxis: {
+        lines: {
+          show: true,
+        },
+      },
+      yaxis: {
+        lines: {
+          show: true,
+        },
+      },
+    },
+    plotOptions: {
+      candlestick: {
+        wick: {
+          useFillColor: true,
+        },
+        colors: {
+          upward: "#46a781",
+          downward: "#e44b44",
+        },
+      },
+    },
+    xaxis: {
+      type: "datetime",
     },
     yaxis: {
-      lines: {
-        show: true,
-      }
-    }
-  },
-  plotOptions: {
-    candlestick: {
-      wick: {
-        useFillColor: true,
+      tooltip: {
+        enabled: true,
       },
-      colors: {
-        upward: "#46a781",
-        downward: "#e44b44",
-      },
+      opposite: true,
     },
-  },
-  chart: {
-    foreColor: "#cccccc",
-  },
-  xaxis: {
-    type: "datetime",
-    tickAmount:10,
-    
-  },
-  yaxis: {
-    tickAmount: 10,
-    tooltip: {
-      enabled: true,
-    },
-    opposite: true,
-  },
-};
+  };
 
-const CandleStickChart = ({ series }: ChartProps) => {
   return (
     <div id="chart">
       {series.length > 0 ? (

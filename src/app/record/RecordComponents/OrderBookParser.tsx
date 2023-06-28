@@ -1,23 +1,22 @@
-import { OrderBookInterface } from "./useRecordParserHook";
+import { OrderBookInterface } from "@/app/Utils/Types/constants.type";
 
 export const OrderBookParser = (
-  data: any,
+  orderBookData: any,
   bids: OrderBookInterface[],
   setBids: React.Dispatch<React.SetStateAction<OrderBookInterface[]>>,
   asks: OrderBookInterface[],
   setAsks: React.Dispatch<React.SetStateAction<OrderBookInterface[]>>
 ) => {
-  const [price, count, amount] = data;
+  const [price, count, amount] = orderBookData;
   if (count > 0) {
     if (amount > 0) {
-      let bidObj = {
+      const bidObj = {
         price,
         count,
         amount,
         total: amount,
       };
       let bidTotal = 0;
-      console.log("bids.length: ", bids.length);
       if (bids.length) {
         const updatedBids: OrderBookInterface[] = [];
 
@@ -37,7 +36,7 @@ export const OrderBookParser = (
         setBids((prev) => [...prev, bidObj]);
       }
     } else if (amount < 0) {
-      let askObj = {
+      const askObj = {
         price,
         count,
         amount: Math.abs(amount),
@@ -47,7 +46,6 @@ export const OrderBookParser = (
       let askTotal = 0;
       if (asks.length) {
         const updatedAsks: OrderBookInterface[] = [];
-
         asks.forEach((ask) => {
           if (ask.price === price) {
             askTotal += askObj.amount;

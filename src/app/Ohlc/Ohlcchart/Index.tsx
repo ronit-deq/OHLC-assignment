@@ -1,37 +1,65 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import React, { useEffect, useState } from "react";
-import Tools from "../ChartComponents/SideToolBar";
+import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
 import OhlcHeader from "../ChartComponents/OhlcHeader";
 import IndicatorBar from "../ChartComponents/IndicatorBar";
 import CandleStickChart from "../ChartComponents/CandleStickChart";
+import candleStickData from "../Services/candleStickData";
 import { INITIAL_TIMEFRAME, OHLC_DATA_POINTS } from "../../Utils/constants";
-import CandleStickData from "../Services/CandleStickData";
+import { OHLCValueInterface } from "@/app/Utils/Types/constants.type";
+import SideToolBar from "../ChartComponents/SideToolBar";
 const OhlcFooter = dynamic(() => import("../ChartComponents/OhlcFooter"), {
   ssr: false,
 });
 
 const OhlcChart: React.FC = () => {
-  const [selectedTime, setSelectedTime] = useState(INITIAL_TIMEFRAME);
-  const [series, setSeries] = useState([]);
+  const [selectedTime, setSelectedTime] = useState<string>(INITIAL_TIMEFRAME);
+  //type of seriess
+  const [series, setSeries] = useState<any[]>([]);
+  const [currentPrice, setCurrentPrice]: [
+    number[],
+    Dispatch<SetStateAction<any>>
+  ] = useState([]);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  const [currentPrice, setCurrentPrice] = useState([]);
   const { OPEN, HIGH, LOW, CLOSE } = OHLC_DATA_POINTS;
 
   useEffect(() => {
-    fetchData();
+    fetchCandleStickData();
   }, [selectedTime]);
 
-  const fetchData = async () => {
-    const { data, error } = await CandleStickData(selectedTime);
+  //fetch CandleStick
+  const fetchCandleStickData = async () => {
+    setIsLoading(true);
+    const { data, error } = await candleStickData(selectedTime);
     if (!error) {
-      setCurrentPrice(data[data.length - 1].y);
-      setSeries(data);
+      setSeries([...data]);
+      setIsLoading(false);
     } else {
       console.log(`HTTP Response Code: ${error}`);
+      setIsLoading(false);
     }
   };
+
+  //arrow function
+
+  function tooltipValues(event: any, chartContext: any, config: any) {
+    if (config.dataPointIndex > 0) {
+      const ohlcVal: OHLCValueInterface = series[config?.dataPointIndex];
+      setCurrentPrice(ohlcVal.y);
+    }
+  }
+
+  function textColorChange() {
+    //let=>const
+    let textColorChoice = "text-green-400";
+
+    //if condition
+    return currentPrice[OPEN] > currentPrice[CLOSE]
+      ? (textColorChoice = "text-red-400")
+      : (textColorChoice = "text-green-400");
+  }
 
   return (
     <div>
@@ -40,21 +68,25 @@ const OhlcChart: React.FC = () => {
         <hr className="ml-4 mr-4" />
       </div>
       <div className="flex justify-center p-1">
-        <Tools />
+        <SideToolBar />
         <div>
           <IndicatorBar />
-          <div className="px-4">
-            BTC/USD 30 bitfinex O
-            <span className="text-green-400 mx-1">{currentPrice[OPEN]}</span> H
-            <span className="text-green-400 mx-1">{currentPrice[HIGH]}</span> L
-            <span className="text-green-400 mx-1">{currentPrice[LOW]}</span> C
-            <span className="text-green-400 mx-1">{currentPrice[CLOSE]}</span>
+          <div className={"px-4 flex"}>
+            BTC/USD 30 bitfinex &nbsp;
+            <div className={textColorChange()}>
+              O<span className="mx-1">{currentPrice[OPEN]}</span> H
+              <span className="mx-1">{currentPrice[HIGH]}</span> L
+              <span className="mx-1">{currentPrice[LOW]}</span> C
+              <span className="mx-1">{currentPrice[CLOSE]}</span>
+            </div>
           </div>
-          <CandleStickChart series={series} />
+          {!isLoading && (
+            <CandleStickChart series={series} tooltipValues={tooltipValues} />
+          )}
         </div>
       </div>
       <div>
-        <OhlcFooter fetchData={setSelectedTime} />
+        <OhlcFooter setSelectedItem={setSelectedTime} />
       </div>
     </div>
   );
