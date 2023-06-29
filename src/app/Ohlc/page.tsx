@@ -19,7 +19,7 @@ const OhlcChart: React.FC = () => {
   const [series, setSeries] = useState<OHLCValueInterface[]>([]);
   const [currentPrice, setCurrentPrice] = useState<number[]>([]);
   const [isDataLoading, setIsDataLoading] = useState<boolean>(false);
-  const [isChartloading, setIsChartLoading] = useState(false);
+  const [isChartloading, setIsChartLoading] = useState<boolean>(false);
   const { OPEN, HIGH, LOW, CLOSE } = OHLC_DATA_POINTS;
 
   useEffect(() => {

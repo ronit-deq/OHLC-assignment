@@ -1,7 +1,7 @@
 import React from "react";
-import OrderBook from "./RecordComponents/OrderBook";
-import OrderBookHeader from "./RecordComponents/OrderBookHeader";
-import OrderBookFooter from "./RecordComponents/OrderBookFooter";
+import OrderBook from "./OrderBookComponents/OrderBook";
+import OrderBookHeader from "./OrderBookComponents/OrderBookHeader";
+import OrderBookFooter from "./OrderBookComponents/OrderBookFooter";
 
 const page = () => {
   return (

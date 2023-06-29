@@ -24,7 +24,7 @@ const OhlcHeader = () => {
         <BiRefresh color="#ccc" className="m-1" />
         {/* hard code */}
         <button className="record-button">
-          <Link href="/record">RECORD BOOK</Link>
+          <Link href="/order">ORDER BOOK</Link>
         </button>
       </div>
     </div>

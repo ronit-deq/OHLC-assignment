@@ -23,7 +23,6 @@ export interface CandleStickChartProps {
   tooltipValues: (event: any, chartContext: any, config: any) => void;
 }
 
-
 export interface OrderBookUpdateInterface {
   price: number;
   count: number;
