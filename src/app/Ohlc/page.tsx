@@ -2,14 +2,15 @@
 
 import dynamic from "next/dynamic";
 import React, { useEffect, useState } from "react";
-import OhlcHeader from "../ChartComponents/OhlcHeader";
-import IndicatorBar from "../ChartComponents/IndicatorBar";
-import CandleStickChart from "../ChartComponents/CandleStickChart";
-import candleStickData from "../Services/candleStickData";
-import { INITIAL_TIMEFRAME, OHLC_DATA_POINTS } from "../../Utils/constants";
-import { OHLCValueInterface } from "@/app/Utils/Types/constants.type";
-import SideToolBar from "../ChartComponents/SideToolBar";
-const OhlcFooter = dynamic(() => import("../ChartComponents/OhlcFooter"), {
+import OhlcHeader from "./ChartComponents/OhlcHeader";
+import IndicatorBar from "./ChartComponents/IndicatorBar";
+import CandleStickChart from "./ChartComponents/CandleStickChart";
+import candleStickData from "./Services/candleStickData";
+import { INITIAL_TIMEFRAME, OHLC_DATA_POINTS } from "../Utils/constants";
+import { OHLCValueInterface } from "../Utils/Types/constants.type";
+import SideToolBar from "./ChartComponents/SideToolBar";
+import LoadingScreen from "./ChartComponents/LoadingScreen";
+const OhlcFooter = dynamic(() => import("./ChartComponents/OhlcFooter"), {
   ssr: false,
 });
 
@@ -17,8 +18,8 @@ const OhlcChart: React.FC = () => {
   const [selectedTime, setSelectedTime] = useState<string>(INITIAL_TIMEFRAME);
   const [series, setSeries] = useState<OHLCValueInterface[]>([]);
   const [currentPrice, setCurrentPrice] = useState<number[]>([]);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-
+  const [isDataLoading, setIsDataLoading] = useState<boolean>(false);
+  const [isChartloading, setIsChartLoading] = useState(false);
   const { OPEN, HIGH, LOW, CLOSE } = OHLC_DATA_POINTS;
 
   useEffect(() => {
@@ -26,14 +27,17 @@ const OhlcChart: React.FC = () => {
   }, [selectedTime]);
 
   const fetchCandleStickData = async () => {
-    setIsLoading(true);
+    setIsChartLoading(true);
+
     const { data, error } = await candleStickData(selectedTime);
     if (!error) {
       setSeries([...data]);
-      setIsLoading(false);
+      setIsChartLoading(false);
+      setIsDataLoading(false);
     } else {
+      setIsChartLoading(false);
       console.log(`HTTP Response Code: ${error}`);
-      setIsLoading(false);
+      setIsDataLoading(false);
     }
   };
 
@@ -50,7 +54,9 @@ const OhlcChart: React.FC = () => {
       : "text-green-400";
   };
 
-  return (
+  return isChartloading ? (
+    <LoadingScreen />
+  ) : (
     <div>
       <div className="px-5">
         <OhlcHeader />
@@ -69,7 +75,7 @@ const OhlcChart: React.FC = () => {
               <span className="mx-1">{currentPrice[CLOSE]}</span>
             </div>
           </div>
-          {!isLoading && (
+          {!isDataLoading && (
             <CandleStickChart series={series} tooltipValues={tooltipValues} />
           )}
         </div>

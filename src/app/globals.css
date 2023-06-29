@@ -91,15 +91,15 @@
   justify-content: center;
   align-items: center;
   position: fixed;
-  background: rgba(0, 0, 0, 0.834);
+  background-color: #102331;
   z-index: 1;
 }
 
 .spinner {
-  width: 64px;
-  height: 64px;
-  border: 8px solid;
-  border-color: #3d5af1 transparent #3d5af1 transparent;
+  width: 80px;
+  height: 80px;
+  border: 15px solid;
+  border-color: #f4f4f4 transparent #f4f4f4 transparent;
   border-radius: 50%;
   animation: spin-anim 1.2s linear infinite;
 }

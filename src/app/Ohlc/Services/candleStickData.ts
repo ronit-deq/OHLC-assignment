@@ -1,5 +1,5 @@
 import timeCalculation from '@/app/Utils/timeCalculation';
-import {TIMEFRAME,  } from '@/app/Utils/constants';
+import {TIMEFRAME} from '@/app/Utils/constants';
 import { apiCall } from '@/app/Utils/apiCall';
 import { endpoints } from '@/app/Utils/endpoint';
 
