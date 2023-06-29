@@ -8,7 +8,7 @@ export interface ApiDataTypes {
 
 export interface OHLCValueInterface {
   x: number;
-  y: [number, number, number, number];
+  y: number[];
 }
 
 export interface OrderBookInterface {
@@ -19,6 +19,14 @@ export interface OrderBookInterface {
 }
 
 export interface CandleStickChartProps {
-  series: number[];
+  series: OHLCValueInterface[];
   tooltipValues: (event: any, chartContext: any, config: any) => void;
+}
+
+
+export interface OrderBookUpdateInterface {
+  price: number;
+  count: number;
+  amount: number;
+  total: number;
 }

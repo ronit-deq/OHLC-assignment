@@ -1,7 +1,7 @@
 import React from "react";
-import { AiTwotoneSliders, AiOutlineSetting } from "react-icons/ai";
 import { TbMathFunction } from "react-icons/tb";
 import { BsArrowsFullscreen, BsCamera } from "react-icons/bs";
+import { AiTwotoneSliders, AiOutlineSetting } from "react-icons/ai";
 
 const IndicatorBar = () => {
   return (

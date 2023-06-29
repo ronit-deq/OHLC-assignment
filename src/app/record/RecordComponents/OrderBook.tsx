@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { useOrderParserHook } from "./useOrderParserHook";
 import BidSection from "./OrderBookBid";
@@ -7,7 +9,7 @@ const OrderBook = () => {
   const [bids, asks] = useOrderParserHook();
 
   return (
-    <div className="order-book">
+    <div className="flex justify-around">
       <BidSection bids={bids} />
       <AskSection asks={asks} />
     </div>

@@ -1,7 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import OhlcHeader from "../ChartComponents/OhlcHeader";
 import IndicatorBar from "../ChartComponents/IndicatorBar";
 import CandleStickChart from "../ChartComponents/CandleStickChart";
@@ -15,12 +15,8 @@ const OhlcFooter = dynamic(() => import("../ChartComponents/OhlcFooter"), {
 
 const OhlcChart: React.FC = () => {
   const [selectedTime, setSelectedTime] = useState<string>(INITIAL_TIMEFRAME);
-  //type of seriess
-  const [series, setSeries] = useState<any[]>([]);
-  const [currentPrice, setCurrentPrice]: [
-    number[],
-    Dispatch<SetStateAction<any>>
-  ] = useState([]);
+  const [series, setSeries] = useState<OHLCValueInterface[]>([]);
+  const [currentPrice, setCurrentPrice] = useState<number[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const { OPEN, HIGH, LOW, CLOSE } = OHLC_DATA_POINTS;
