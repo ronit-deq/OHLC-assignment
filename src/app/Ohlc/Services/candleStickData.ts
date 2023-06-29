@@ -1,30 +1,25 @@
-import axios from 'axios';
-import TimeCalculation from '@/app/Utils/TimeCalculation';
-import { BASE_URL, TIMEFRAME } from '@/app/Utils/constants';
+import timeCalculation from '@/app/Utils/timeCalculation';
+import {TIMEFRAME,  } from '@/app/Utils/constants';
+import { apiCall } from '@/app/Utils/apiCall';
+import { endpoints } from '@/app/Utils/endpoint';
 
 const candleStickData = async(selectedTime:string) => {
- try {
-      const { start, end } = TimeCalculation(selectedTime);
+      const { start, end } = timeCalculation(selectedTime);
+      const endpoint=`${endpoints.candle}:${TIMEFRAME[selectedTime]}:tBTCUSD/hist?start=${start}&end=${end}&limit=500`
 
-      //different file for https req for axios
-      const response = await axios.get(
-        `${BASE_URL}/candles/trade:${TIMEFRAME[selectedTime]}:tBTCUSD/hist?start=${start}&end=${end}&limit=500`
-      );
-      if (response.status === 200) {
-        const data = response.data.map((candle: number[]) => {
-          //remove slice
-          const [open, close, high, low] = candle.slice(1, 5);
+      const {data,error}=await apiCall(endpoint,'GET')
+      if (!error) {
+        const apiData = data.map((candle: number[]) => {
+          const [x,open, close, high, low] = candle
           return {
-              x: candle[0],
+              x,
               y: [open, high, low, close],
             };
         });
-        return {data,error:false}
+        return {data:apiData,error:false}
       }
-    }
-    catch (error) {
-      return {data:null,error}
-    }
+    
+    
     return {data:null,error:null}
 }
 

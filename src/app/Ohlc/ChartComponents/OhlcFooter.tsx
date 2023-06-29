@@ -1,12 +1,12 @@
 import React, { Dispatch, SetStateAction } from "react";
-import { TIMEFRAME } from "../../Utils/constants";
 import moment from "moment";
+import { TIMEFRAME } from "../../Utils/constants";
 
-const OhlcFooter = ({
-  setSelectedItem,
-}: {
-  setSelectedItem: Dispatch<SetStateAction<string>> | any;
-}) => {
+interface OhlcFooterProps {
+  setSelectedItem: Dispatch<SetStateAction<string>>;
+}
+
+const OhlcFooter: React.FC<OhlcFooterProps> = ({ setSelectedItem }) => {
   return (
     <div className="flex flex-row justify-between mx-10 footer px-5 py-4">
       <div className="flex flex-row justify-around">

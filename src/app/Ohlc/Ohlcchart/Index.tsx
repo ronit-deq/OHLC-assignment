@@ -29,7 +29,6 @@ const OhlcChart: React.FC = () => {
     fetchCandleStickData();
   }, [selectedTime]);
 
-  //fetch CandleStick
   const fetchCandleStickData = async () => {
     setIsLoading(true);
     const { data, error } = await candleStickData(selectedTime);
@@ -42,24 +41,18 @@ const OhlcChart: React.FC = () => {
     }
   };
 
-  //arrow function
-
-  function tooltipValues(event: any, chartContext: any, config: any) {
+  const tooltipValues = (event: any, chartContext: any, config: any) => {
     if (config.dataPointIndex > 0) {
       const ohlcVal: OHLCValueInterface = series[config?.dataPointIndex];
       setCurrentPrice(ohlcVal.y);
     }
-  }
+  };
 
-  function textColorChange() {
-    //let=>const
-    let textColorChoice = "text-green-400";
-
-    //if condition
+  const textColorChange = () => {
     return currentPrice[OPEN] > currentPrice[CLOSE]
-      ? (textColorChoice = "text-red-400")
-      : (textColorChoice = "text-green-400");
-  }
+      ? "text-red-400"
+      : "text-green-400";
+  };
 
   return (
     <div>

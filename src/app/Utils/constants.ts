@@ -18,7 +18,7 @@ export const TIMEFRAME : TimeFrameTypes ={
 }
 
 
-// export enum TIMEFRAME {
+// export enum TimeFrame {
 //     "1h"="1m",
 //     "6h"="5m",
 //     "1d"="15m",

@@ -1,12 +1,14 @@
 import React from "react";
 import dynamic from "next/dynamic";
+import { ApexOptions } from "apexcharts";
 import { CandleStickChartProps } from "@/app/Utils/Types/constants.type";
+
 const ReactApexChart = dynamic(() => import("react-apexcharts"), {
   ssr: false,
 });
 
 const CandleStickChart = ({ series, tooltipValues }: CandleStickChartProps) => {
-  const OPTIONS: ApexCharts.ApexOptions | undefined = {
+  const options: ApexOptions = {
     chart: {
       foreColor: "#ccc",
       events: {
@@ -52,7 +54,7 @@ const CandleStickChart = ({ series, tooltipValues }: CandleStickChartProps) => {
     <div id="chart">
       {series.length > 0 ? (
         <ReactApexChart
-          options={OPTIONS}
+          options={options}
           series={[{ data: series }]}
           type="candlestick"
           height={"100%"}
