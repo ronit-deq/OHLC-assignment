@@ -8,6 +8,7 @@ import {
   BsZoomOut,
 } from "react-icons/bs";
 import { AiFillSetting, AiOutlineDown } from "react-icons/ai";
+import { paths } from "@/app/Utils/paths";
 
 const OrderBookHeader = () => {
   return (
@@ -28,7 +29,7 @@ const OrderBookHeader = () => {
         <BsZoomOut className="m-2" size={18} />
 
         <button className="record-button px-7">
-          <Link href="/">CHART</Link>
+          <Link href={paths.ohlcChart}>CHART</Link>
         </button>
       </div>
     </div>

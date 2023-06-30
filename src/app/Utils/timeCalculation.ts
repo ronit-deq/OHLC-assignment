@@ -3,8 +3,7 @@ const TimeCalculation = (selectedTime:string) => {
   let start: number
   const currentTime = Math.floor(+(new Date())/ 1000);
   const end = currentTime * 1000;
-
-  //1d => enum
+  const limit=500;
 
   switch (selectedTime) {
     case "1h":
@@ -47,7 +46,7 @@ const TimeCalculation = (selectedTime:string) => {
       start = (currentTime - 3600) * 1000;
       break;
   }
-  return {start,end}
+  return {start,end,limit}
 }
 
 export default TimeCalculation

@@ -3,13 +3,13 @@
 import dynamic from "next/dynamic";
 import React, { useEffect, useState } from "react";
 import OhlcHeader from "./ChartComponents/OhlcHeader";
-import IndicatorBar from "./ChartComponents/IndicatorBar";
 import CandleStickChart from "./ChartComponents/CandleStickChart";
 import candleStickData from "./Services/candleStickData";
 import { INITIAL_TIMEFRAME, OHLC_DATA_POINTS } from "../Utils/constants";
 import { OHLCValueInterface } from "../Utils/Types/constants.type";
 import SideToolBar from "./ChartComponents/SideToolBar";
-import LoadingScreen from "./ChartComponents/LoadingScreen";
+import LoadingScreen from "../LoadingScreen";
+import TopIndicatorBar from "./ChartComponents/TopIndicatorBar";
 const OhlcFooter = dynamic(() => import("./ChartComponents/OhlcFooter"), {
   ssr: false,
 });
@@ -41,7 +41,7 @@ const OhlcChart: React.FC = () => {
     }
   };
 
-  const tooltipValues = (event: any, chartContext: any, config: any) => {
+  const tooltipValues = (event: object, chartContext: object, config: any) => {
     if (config.dataPointIndex > 0) {
       const ohlcVal: OHLCValueInterface = series[config?.dataPointIndex];
       setCurrentPrice(ohlcVal.y);
@@ -65,7 +65,7 @@ const OhlcChart: React.FC = () => {
       <div className="flex justify-center p-1">
         <SideToolBar />
         <div>
-          <IndicatorBar />
+          <TopIndicatorBar />
           <div className={"px-4 flex"}>
             BTC/USD 30 bitfinex &nbsp;
             <div className={textColorChange()}>

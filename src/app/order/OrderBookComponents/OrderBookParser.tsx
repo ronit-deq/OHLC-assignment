@@ -43,6 +43,7 @@ export const OrderBookParser = (
       if (asks.length) {
         updateAsks(price, askTotal, asks, setAsks, askObject);
       } else {
+        askTotal += amount;
         setAsks((prev) => [...prev, askObject]);
       }
     }

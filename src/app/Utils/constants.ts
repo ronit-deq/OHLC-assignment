@@ -1,36 +1,22 @@
-import { ApiDataTypes, TimeFrameTypes } from "./Types/constants.type";
+import { ApiDataTypes } from "./Types/constants.type";
 
 export const SOCKET_URL='wss://api-pub.bitfinex.com/ws/2' 
 
 export const BASE_URL='https://api-pub.bitfinex.com/v2' 
 
+export const INITIAL_TIMEFRAME='1h';
 
-export const TIMEFRAME : TimeFrameTypes ={
-    "1h":"1m",
-    "6h":"5m",
-    "1d":"15m",
-    "3d":"30m",
-    "7d":"1h",
-    "1m":"6h",
-    "3m":"12h",
-    "1y":"1D",
-    "3y":"1W"
+export enum TimeFrame {
+    "3y"="1W",
+    "1y"="1D",
+    "3m"="12h",
+    "1m"="6h",
+    "7d"="1h",
+    "3d"="30m",
+    "1d"="15m",
+    "6h"="5m",
+    "1h"="1m",    
 }
-
-
-// export enum TimeFrame {
-//     "1h"="1m",
-//     "6h"="5m",
-//     "1d"="15m",
-//     "3d"="30m",
-//     "7d"="1h",
-//     "1m"="6h",
-//     "3m"="12h",
-//     "1y"="1D",
-//     "3y"="1W"
-// }
-
-
 
 export const OHLC_DATA_POINTS : ApiDataTypes ={
     "OPEN": 0,
@@ -39,4 +25,3 @@ export const OHLC_DATA_POINTS : ApiDataTypes ={
     "CLOSE":3
 }  
 
-export const INITIAL_TIMEFRAME='1h';

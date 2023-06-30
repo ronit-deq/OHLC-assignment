@@ -1,3 +1,4 @@
 export const endpoints={
-    candle:"/candles/trade"
+    candle:"/candles/trade",
+    currencyToken:"tBTCUSD/hist"
 }

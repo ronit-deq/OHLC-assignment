@@ -7,7 +7,7 @@ import { BsEmojiLaughing, BsMagnet } from "react-icons/bs";
 import { LuRuler } from "react-icons/lu";
 import { AiOutlineZoomIn, AiOutlinePlus } from "react-icons/ai";
 
-const SideToolBar = () => {
+const SideToolBar: React.FC = () => {
   return (
     <div className="flex flex-col justify-around mt-10">
       <AiOutlinePlus className="tool-icon" size={22} />

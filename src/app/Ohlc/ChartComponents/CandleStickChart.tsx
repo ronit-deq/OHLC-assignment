@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 import { ApexOptions } from "apexcharts";
 import { CandleStickChartProps } from "@/app/Utils/Types/constants.type";
-
 const ReactApexChart = dynamic(() => import("react-apexcharts"), {
   ssr: false,
 });
