@@ -16,7 +16,7 @@ const OhlcFooter = dynamic(() => import("./ChartComponents/OhlcFooter"), {
 
 const OhlcChart: React.FC = () => {
   const [selectedTime, setSelectedTime] = useState<string>(INITIAL_TIMEFRAME);
-  const [series, setSeries] = useState<OHLCValueInterface[]>([]);
+  const [candleSeries, setCandleSeries] = useState<OHLCValueInterface[]>([]);
   const [currentPrice, setCurrentPrice] = useState<number[]>([]);
   const [isDataLoading, setIsDataLoading] = useState<boolean>(false);
   const [isChartloading, setIsChartLoading] = useState<boolean>(false);
@@ -31,7 +31,7 @@ const OhlcChart: React.FC = () => {
 
     const { data, error } = await candleStickData(selectedTime);
     if (!error) {
-      setSeries([...data]);
+      setCandleSeries([...data]);
       setIsChartLoading(false);
       setIsDataLoading(false);
     } else {
@@ -43,8 +43,9 @@ const OhlcChart: React.FC = () => {
 
   const tooltipValues = (event: object, chartContext: object, config: any) => {
     if (config.dataPointIndex > 0) {
-      const ohlcVal: OHLCValueInterface = series[config?.dataPointIndex];
-      setCurrentPrice(ohlcVal.y);
+      const ohlcValues: OHLCValueInterface =
+        candleSeries[config?.dataPointIndex];
+      setCurrentPrice(ohlcValues.y);
     }
   };
 
@@ -76,7 +77,10 @@ const OhlcChart: React.FC = () => {
             </div>
           </div>
           {!isDataLoading && (
-            <CandleStickChart series={series} tooltipValues={tooltipValues} />
+            <CandleStickChart
+              candleSeries={candleSeries}
+              tooltipValues={tooltipValues}
+            />
           )}
         </div>
       </div>

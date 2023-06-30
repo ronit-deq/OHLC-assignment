@@ -1,7 +1,4 @@
-import {
-  OrderBookInterface,
-  OrderBookUpdateInterface,
-} from "@/app/Utils/Types/constants.type";
+import { OrderBookInterface } from "@/app/Utils/Types/constants.type";
 import { updateBids } from "../Services/updateBid";
 import { updateAsks } from "../Services/updateAsk";
 
@@ -18,10 +15,10 @@ export const OrderBookParser = (
 
   if (count > 0) {
     if (amount > 0) {
-      const bidObject: OrderBookUpdateInterface = {
+      const bidObject: OrderBookInterface = {
         price,
-        count,
         amount,
+        count,
         total: amount,
       };
 
@@ -33,10 +30,10 @@ export const OrderBookParser = (
         setBids((prev) => [...prev, bidObject]);
       }
     } else if (amount < 0) {
-      const askObject: OrderBookUpdateInterface = {
+      const askObject: OrderBookInterface = {
         price,
-        count,
         amount: Math.abs(amount),
+        count,
         total: Math.abs(amount),
       };
       let askTotal = 0;

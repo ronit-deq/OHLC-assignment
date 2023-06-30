@@ -19,13 +19,6 @@ export interface OrderBookInterface {
 }
 
 export interface CandleStickChartProps {
-  series: OHLCValueInterface[];
+  candleSeries: OHLCValueInterface[];
   tooltipValues: (event: any, chartContext: any, config: any) => void;
-}
-
-export interface OrderBookUpdateInterface {
-  price: number;
-  count: number;
-  amount: number;
-  total: number;
 }

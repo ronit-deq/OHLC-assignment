@@ -1,12 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import dynamic from "next/dynamic";
 import { ApexOptions } from "apexcharts";
 import { CandleStickChartProps } from "@/app/Utils/Types/constants.type";
+import LoadingScreen from "@/app/LoadingScreen";
 const ReactApexChart = dynamic(() => import("react-apexcharts"), {
   ssr: false,
 });
 
-const CandleStickChart = ({ series, tooltipValues }: CandleStickChartProps) => {
+const CandleStickChart = ({
+  candleSeries,
+  tooltipValues,
+}: CandleStickChartProps) => {
   const options: ApexOptions = {
     chart: {
       foreColor: "#ccc",
@@ -51,16 +55,16 @@ const CandleStickChart = ({ series, tooltipValues }: CandleStickChartProps) => {
 
   return (
     <div id="chart">
-      {series.length > 0 ? (
+      {candleSeries.length > 0 ? (
         <ReactApexChart
           options={options}
-          series={[{ data: series }]}
+          series={[{ data: candleSeries }]}
           type="candlestick"
           height={"100%"}
           width={"100%"}
         />
       ) : (
-        <div>Loading chart data...</div>
+        <LoadingScreen />
       )}
     </div>
   );
