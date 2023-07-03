@@ -20,5 +20,5 @@ export interface OrderBookInterface {
 
 export interface CandleStickChartProps {
   candleSeries: OHLCValueInterface[];
-  tooltipValues: (event: any, chartContext: any, config: any) => void;
+  tooltipValues: (event: object, chartContext: object, config: object) => void;
 }

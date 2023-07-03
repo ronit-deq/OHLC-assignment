@@ -1,8 +1,8 @@
 import React from "react";
 import dynamic from "next/dynamic";
 import { ApexOptions } from "apexcharts";
-import { CandleStickChartProps } from "@/app/Utils/Types/constants.type";
 import LoadingScreen from "@/app/LoadingScreen";
+import { CandleStickChartProps } from "@/app/Utils/Types/constants.type";
 const ReactApexChart = dynamic(() => import("react-apexcharts"), {
   ssr: false,
 });
@@ -13,7 +13,7 @@ const CandleStickChart = ({
 }: CandleStickChartProps) => {
   const options: ApexOptions = {
     chart: {
-      foreColor: "#ccc",
+      foreColor: "#cccccc",
       events: {
         mouseMove: tooltipValues,
       },

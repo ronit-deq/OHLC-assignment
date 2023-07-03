@@ -23,7 +23,7 @@ const TimeCalculation = (selectedTime:string) => {
       break;
 
     case "7d":
-      start = (currentTime - (7 * 24 * 3600)) * 1000;
+      start = (currentTime - 7 * 24 * 3600) * 1000;
       break;
 
     case "1m":

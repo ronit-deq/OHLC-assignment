@@ -6,25 +6,13 @@ import OrderBookFooter from "./OrderBookComponents/OrderBookFooter";
 import LoadingScreen from "../LoadingScreen";
 
 const page = () => {
-  const [loading, setLoading] = useState(false);
-  useEffect(() => {
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-    }, 500);
-  }, []);
-
   return (
     <div>
-      {loading ? (
-        <LoadingScreen />
-      ) : (
-        <div className="flex flex-col justify-between record-book">
-          <OrderBookHeader />
-          <OrderBook />
-          <OrderBookFooter />
-        </div>
-      )}
+      <div className="flex flex-col justify-between record-book">
+        <OrderBookHeader />
+        <OrderBook />
+        <OrderBookFooter />
+      </div>
     </div>
   );
 };

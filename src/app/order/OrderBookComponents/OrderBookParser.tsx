@@ -5,7 +5,7 @@ import { updateAsks } from "../Services/updateAsk";
 type SetOrderBook = React.Dispatch<React.SetStateAction<OrderBookInterface[]>>;
 
 export const OrderBookParser = (
-  orderBookData: any,
+  orderBookData: number[],
   bids: OrderBookInterface[],
   setBids: SetOrderBook,
   asks: OrderBookInterface[],
@@ -39,6 +39,7 @@ export const OrderBookParser = (
       let askTotal = 0;
       if (asks.length) {
         updateAsks(price, askTotal, asks, setAsks, askObject);
+        setAsks;
       } else {
         askTotal += amount;
         setAsks((prev) => [...prev, askObject]);

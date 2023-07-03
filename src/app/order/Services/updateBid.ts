@@ -1,4 +1,4 @@
-import { OrderBookInterface, OrderBookUpdateInterface } from "@/app/Utils/Types/constants.type";
+import { OrderBookInterface } from "@/app/Utils/Types/constants.type";
 type SetOrderBook = React.Dispatch<React.SetStateAction<OrderBookInterface[]>>;
 
 export const updateBids = (
@@ -6,9 +6,9 @@ export const updateBids = (
   bidTotal: number,
   bids: OrderBookInterface[],
   setBids: SetOrderBook,
-  bidObject:OrderBookUpdateInterface
+  bidObject:OrderBookInterface
 ) => {
-  const updatedBids: OrderBookUpdateInterface[] = [];
+  const updatedBids: OrderBookInterface[] = [];
 
   bids.forEach((bid) => {
     if (bid.price === price) {
