@@ -49,6 +49,12 @@
   color: #3C907F;
 }
 
+.activeTimeStamp {
+  background: #ccc;
+  opacity: 0.4;
+  border-radius: 5%;
+}
+
 /* order Book */
 
 .record-book{
@@ -77,8 +83,9 @@
   opacity: 0.2;
   z-index: -1;
   transition: width .1s ease-in-out;
-
 }
+
+
 
 
 /* Loading Animation */

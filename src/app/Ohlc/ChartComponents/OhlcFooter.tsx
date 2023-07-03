@@ -1,5 +1,5 @@
 import moment from "moment";
-import React, { Dispatch, SetStateAction } from "react";
+import React, { Dispatch, SetStateAction, useState } from "react";
 import { TIMEFRAME } from "@/app/Utils/constants";
 
 interface OhlcFooterProps {
@@ -7,6 +7,11 @@ interface OhlcFooterProps {
 }
 
 const OhlcFooter: React.FC<OhlcFooterProps> = ({ setSelectedItem }) => {
+  const [isActive, setIsActive] = useState<boolean>(false);
+
+  const handleButtonChange = (): void => {
+    setIsActive(!isActive);
+  };
   return (
     <div className="flex flex-row justify-between mx-10 footer px-5 py-4">
       <div className="flex flex-row justify-around">
@@ -15,9 +20,12 @@ const OhlcFooter: React.FC<OhlcFooterProps> = ({ setSelectedItem }) => {
             <button
               key={timeFrameIndex}
               onClick={() => {
+                handleButtonChange;
                 setSelectedItem(timeStamp);
               }}
-              className="timeframe-button"
+              className={`timeframe-button + ${
+                isActive ? "activeTimeStamp" : ""
+              }`}
             >
               <p className="m-2">{timeStamp}</p>
             </button>

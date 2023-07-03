@@ -1,4 +1,4 @@
-export const paths={
+export const urlPaths={
     ohlcChart: '/',
     orderBook: '/order'
 }

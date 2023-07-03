@@ -3,7 +3,7 @@ import Link from "next/link";
 import { AiOutlineDown } from "react-icons/ai";
 import { FaCaretDown, FaCaretUp } from "react-icons/fa";
 import { BiRefresh } from "react-icons/bi";
-import { paths } from "@/app/Utils/paths";
+import { urlPaths } from "@/app/Utils/paths";
 
 const OhlcHeader: React.FC = () => {
   return (
@@ -24,7 +24,7 @@ const OhlcHeader: React.FC = () => {
         <FaCaretDown color="white" className="m-2" size={20} />
         <BiRefresh color="#ccc" className="m-2" size={20} />
         <button className="record-button">
-          <Link href={paths.orderBook}>ORDER BOOK</Link>
+          <Link href={urlPaths.orderBook}>ORDER BOOK</Link>
         </button>
       </div>
     </div>
