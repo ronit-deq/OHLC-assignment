@@ -8,18 +8,18 @@ export const updateBids = (
   setBids: SetOrderBook,
   bidObject:OrderBookInterface
 ) => {
-  const updatedBids: OrderBookInterface[] = [];
+  const UPDATED_BIDS: OrderBookInterface[] = [];
 
-  bids.forEach((bid) => {
+  bids.map((bid) => {
     if (bid.price === price) {
       bidTotal += bidObject.amount;
-      updatedBids.push(bidObject);
+      UPDATED_BIDS.push(bidObject);
     } else {
       bidTotal += bid.amount;
       bid.total = bidTotal;
-      updatedBids.push(bid);
+      UPDATED_BIDS.push(bid);
     }
   });
 
-  setBids([...updatedBids]);
+  setBids([...UPDATED_BIDS]);
 };

@@ -6,7 +6,7 @@ export const BASE_URL='https://api-pub.bitfinex.com/v2'
 
 export const INITIAL_TIMEFRAME='1h';
 
-export enum TimeFrame {
+export enum TIMEFRAME {
     "3y"="1W",
     "1y"="1D",
     "3m"="12h",

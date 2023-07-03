@@ -9,18 +9,18 @@ export const updateAsks = (
   askObject:OrderBookInterface
 
 ) => {
-  const updatedAsks: OrderBookInterface[] = [];
+  const UPDATED_ASKS: OrderBookInterface[] = [];
 
-  asks.forEach((ask) => {
+  asks.map((ask) => {
     if (ask.price === price) {
       askTotal += Math.abs(askObject.amount);
-      updatedAsks.push(askObject);
+      UPDATED_ASKS.push(askObject);
     } else {
       askTotal += ask.amount;
       ask.total = askTotal;
-      updatedAsks.push(ask);
+      UPDATED_ASKS.push(ask);
     }
   });
 
-  setAsks(updatedAsks);
+  setAsks([...UPDATED_ASKS]);
 };

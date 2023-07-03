@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useWebSocket } from "react-use-websocket/dist/lib/use-websocket";
 import { SOCKET_URL } from "@/app/Utils/constants";
-import { OrderBookParser } from "./OrderBookParser";
 import { OrderBookInterface } from "@/app/Utils/Types/constants.type";
+import { OrderBookParser } from "./OrderBookParser";
 
 export const useOrderParserHook = () => {
   const [bids, setBids] = useState<OrderBookInterface[]>([]);
@@ -10,8 +10,7 @@ export const useOrderParserHook = () => {
 
   const ws = useWebSocket(SOCKET_URL, {
     onMessage: (msg) => {
-      let orderBookData = JSON.parse(msg.data);
-      orderBookData = orderBookData[1];
+      const orderBookData = JSON.parse(msg.data)[1];
       if (!Array.isArray(orderBookData)) return;
       if (orderBookData?.length > 3) {
         orderBookData.forEach((item: number[]) => {

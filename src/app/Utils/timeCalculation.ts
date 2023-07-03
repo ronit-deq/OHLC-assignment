@@ -1,52 +1,52 @@
 
-const TimeCalculation = (selectedTime:string) => {
+const timeCalculation = (selectedTime:string) => {
   let start: number
-  const currentTime = Math.floor(+(new Date())/ 1000);
-  const end = currentTime * 1000;
-  const limit=500;
+  const CURRENT_TIME = Math.floor(+(new Date())/ 1000);
+  const END = CURRENT_TIME * 1000;
+  const LIMIT=500;
 
   switch (selectedTime) {
     case "1h":
-      start = (currentTime - 3600) * 1000;
+      start = (CURRENT_TIME - 3600) * 1000;
       break;
 
     case "6h":
-      start = (currentTime - 6 * 3600) * 1000;
+      start = (CURRENT_TIME - 6 * 3600) * 1000;
       break;
 
     case "1d":
-      start = (currentTime - 24 * 3600) * 1000;
+      start = (CURRENT_TIME - 24 * 3600) * 1000;
       break;
 
     case "3d":
-      start = (currentTime - 3 * 24 * 3600) * 1000;
+      start = (CURRENT_TIME - 3 * 24 * 3600) * 1000;
       break;
 
     case "7d":
-      start = (currentTime - 7 * 24 * 3600) * 1000;
+      start = (CURRENT_TIME - 7 * 24 * 3600) * 1000;
       break;
 
     case "1m":
-      start = (currentTime - 30 * 24 * 3600) * 1000;
+      start = (CURRENT_TIME - 30 * 24 * 3600) * 1000;
       break;
 
     case "3m":
-      start = (currentTime - 3 * 30 * 24 * 3600) * 1000;
+      start = (CURRENT_TIME - 3 * 30 * 24 * 3600) * 1000;
       break;
 
     case "1y":
-      start = (currentTime - 365 * 24 * 3600) * 1000;
+      start = (CURRENT_TIME - 365 * 24 * 3600) * 1000;
       break;
 
     case "3y":
-      start = (currentTime - 3 * 365 * 24 * 3600) * 1000;
+      start = (CURRENT_TIME - 3 * 365 * 24 * 3600) * 1000;
       break;
     
     default:
-      start = (currentTime - 3600) * 1000;
+      start = (CURRENT_TIME - 3600) * 1000;
       break;
   }
-  return {start,end,limit}
+  return {start,END,LIMIT}
 }
 
-export default TimeCalculation
+export default timeCalculation

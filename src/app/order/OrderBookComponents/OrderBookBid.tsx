@@ -18,7 +18,7 @@ const BidSection = ({ bids }: { bids: OrderBookInterface[] }) => {
         >
           <div
             className="progress-green"
-            style={{ width: `${(bid.total * 10) / 4}%` }}
+            style={{ width: `${(bid.total * 10) / 5}%` }}
           ></div>
           <div className="text-center w-2">{bid.count}</div>
           <div className="text-center w-2">{bid.amount.toFixed(4)}</div>

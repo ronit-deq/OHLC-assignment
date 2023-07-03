@@ -39,7 +39,6 @@ export const OrderBookParser = (
       let askTotal = 0;
       if (asks.length) {
         updateAsks(price, askTotal, asks, setAsks, askObject);
-        setAsks;
       } else {
         askTotal += amount;
         setAsks((prev) => [...prev, askObject]);

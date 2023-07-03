@@ -1,26 +1,26 @@
 import timeCalculation from '@/app/Utils/timeCalculation';
-import {TimeFrame} from '@/app/Utils/constants';
 import { apiCall } from '@/app/Utils/apiCall';
 import { endpoints } from '@/app/Utils/endpoint';
+import { TIMEFRAME } from '@/app/Utils/constants';
 
-const candleStickData = async(selectedTime:string) => {
-      const { start, end ,limit} = timeCalculation(selectedTime);
+const candleStickDataFetch = async(selectedTime:string) => {
+      const { start, END ,LIMIT} = timeCalculation(selectedTime);      
       
-      const endpoint=`${endpoints.candle}:${TimeFrame[selectedTime as keyof typeof TimeFrame]}:${endpoints.currencyToken}?start=${start}&end=${end}&limit=${limit}`
-
-      const {data,error}=await apiCall(endpoint,'GET')
+      const API_END_POINT=`${endpoints.candle}:${TIMEFRAME[selectedTime as keyof typeof TIMEFRAME]}:${endpoints.currencyToken}?start=${start}&end=${END}&limit=${LIMIT}`;
+      
+      const {data,error}=await apiCall(API_END_POINT,'GET')
       
       if (!error) {
-        const apiData = data.map((candle: number[]) => {
+        const API_DATA = data.map((candle: number[]) => {
           const [x,open, close, high, low] = candle
           return {
               x,
               y: [open, high, low, close],
             };
         });
-        return {data:apiData,error:false}
+        return {data:API_DATA,error:false}
       }
-    return {data:null,error:null}
+    return {data:null,error:error}
 }
 
-export default candleStickData
+export default candleStickDataFetch;
