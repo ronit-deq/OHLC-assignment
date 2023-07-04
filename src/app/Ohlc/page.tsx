@@ -18,6 +18,7 @@ const OhlcFooter = dynamic(() => import("./ChartComponents/OhlcFooter"), {
 const OhlcChart: React.FC = () => {
   const [selectedTime, setSelectedTime] = useState<string>(INITIAL_TIMEFRAME);
   const [candleSeries, setCandleSeries] = useState<OHLCValueInterface[]>([]);
+  //type
   const [currentPrice, setCurrentPrice] = useState<number[]>([]);
   const [isChartloading, setIsChartLoading] = useState<boolean>(false);
 

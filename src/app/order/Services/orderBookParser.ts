@@ -12,6 +12,9 @@ export const orderBookParser = (
   setAsks: SetOrderBook
 ) => {
   const [price, count, amount] = orderBookData;
+  const obj={
+    updateBids
+  }
 
   if (count > 0) {
     if (amount > 0) {
@@ -24,7 +27,8 @@ export const orderBookParser = (
 
       let bidTotal = 0;
       if (bids.length) {
-        updateBids(price, bidTotal, bids, setBids, bidObject);
+        const UPDATED_BIDS=updateBids(price, bidTotal, bids, bidObject);
+        setBids(UPDATED_BIDS);
       } else {
         bidTotal += amount;
         setBids((prev) => [...prev, bidObject]);
@@ -38,7 +42,8 @@ export const orderBookParser = (
       };
       let askTotal = 0;
       if (asks.length) {
-        updateAsks(price, askTotal, asks, setAsks, askObject);
+        const updatedAsk=updateAsks(price, askTotal, asks, askObject);
+        setAsks(updatedAsk)
       } else {
         askTotal += amount;
         setAsks((prev) => [...prev, askObject]);

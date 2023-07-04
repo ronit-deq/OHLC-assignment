@@ -5,21 +5,21 @@ export const updateBids = (
   price: number,
   bidTotal: number,
   bids: OrderBookInterface[],
-  setBids: SetOrderBook,
+  // setBids: SetOrderBook,
   bidObject:OrderBookInterface
 ) => {
-  const UPDATED_BIDS: OrderBookInterface[] = [];
+  const updatedBids: OrderBookInterface[] = [];
 
   bids.map((bid) => {
     if (bid.price === price) {
       bidTotal += bidObject.amount;
-      UPDATED_BIDS.push(bidObject);
+      updatedBids.push(bidObject);
     } else {
       bidTotal += bid.amount;
       bid.total = bidTotal;
-      UPDATED_BIDS.push(bid);
+      updatedBids.push(bid);
     }
   });
-
-  setBids([...UPDATED_BIDS]);
+  return updatedBids;
+  // setBids([...UPDATED_BIDS]);
 };

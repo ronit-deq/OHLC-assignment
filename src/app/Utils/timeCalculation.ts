@@ -2,6 +2,7 @@
 const timeCalculation = (selectedTime:string) => {
   let start: number
   const CURRENT_TIME = Math.floor(+(new Date())/ 1000);
+  //lowercase
   const END = CURRENT_TIME * 1000;
   const LIMIT=500;
 

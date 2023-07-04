@@ -14,6 +14,7 @@ export const useOrderParserHook = () => {
       if (!Array.isArray(orderBookData)) return;
       if (orderBookData?.length > 3) {
         orderBookData.forEach((item: number[]) => {
+          //return n set
           orderBookParser(item, bids, setBids, asks, setAsks);
         });
       } else if (orderBookData.length === 3) {

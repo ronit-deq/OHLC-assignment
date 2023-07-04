@@ -5,22 +5,21 @@ export const updateAsks = (
   price: number,
   askTotal: number,
   asks: OrderBookInterface[],
-  setAsks: SetOrderBook,
   askObject:OrderBookInterface
 
 ) => {
-  const UPDATED_ASKS: OrderBookInterface[] = [];
+  const updatedAsk: OrderBookInterface[] = [];
 
   asks.map((ask) => {
     if (ask.price === price) {
       askTotal += Math.abs(askObject.amount);
-      UPDATED_ASKS.push(askObject);
+      updatedAsk.push(askObject);
     } else {
       askTotal += ask.amount;
       ask.total = askTotal;
-      UPDATED_ASKS.push(ask);
+      updatedAsk.push(ask);
     }
   });
-
-  setAsks([...UPDATED_ASKS]);
+  return (updatedAsk);
+  // setAsks([...UPDATED_ASKS]);
 };

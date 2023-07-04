@@ -11,14 +11,14 @@ const candleStickData = async(selectedTime:string) => {
     const {data,error}=await apiCall(API_END_POINT,'GET')
       
     if (!error) {
-      const API_DATA = data.map((candle: number[]) => {
+      const apiData = data.map((candle: number[]) => {
         const [x,open, close, high, low] = candle
           return {
             x,
             y: [open, high, low, close],
           };
       });
-      return {data:API_DATA,error:null}
+      return {data:apiData,error:null}
     }
     return {data:null,error:error}
 }
