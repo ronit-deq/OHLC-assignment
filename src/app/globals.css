@@ -14,9 +14,6 @@
   width: 90vw;
 }
 
-.head2>span{
-  font-weight: bold;
-}
 
 .timeframe-button:focus,.timeframe-button:hover{
   background: #ccc;

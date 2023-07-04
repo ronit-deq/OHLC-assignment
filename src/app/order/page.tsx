@@ -1,5 +1,4 @@
 "use client";
-import React from "react";
 import OrderBook from "./OrderBookComponents/OrderBook";
 import OrderBookHeader from "./OrderBookComponents/OrderBookHeader";
 import OrderBookFooter from "./OrderBookComponents/OrderBookFooter";

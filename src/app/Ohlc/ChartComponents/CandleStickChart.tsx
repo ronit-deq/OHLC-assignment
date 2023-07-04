@@ -1,4 +1,3 @@
-import React from "react";
 import dynamic from "next/dynamic";
 import { ApexOptions } from "apexcharts";
 import LoadingScreen from "@/app/LoadingScreen";

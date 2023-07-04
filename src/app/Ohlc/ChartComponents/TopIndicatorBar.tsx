@@ -1,4 +1,3 @@
-import React from "react";
 import { TbMathFunction } from "react-icons/tb";
 import { BsArrowsFullscreen, BsCamera } from "react-icons/bs";
 import { AiTwotoneSliders, AiOutlineSetting } from "react-icons/ai";

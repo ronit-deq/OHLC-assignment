@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import AskSection from "./OrderBookAsk";
 import BidSection from "./OrderBookBid";
 import { useOrderParserHook } from "../Services/useOrderParserHook";

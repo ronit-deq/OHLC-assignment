@@ -1,5 +1,4 @@
 import { OrderBookInterface } from "@/app/Utils/Types/constants.type";
-import React from "react";
 
 const BidSection = ({ bids }: { bids: OrderBookInterface[] }) => {
   return (

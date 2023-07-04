@@ -1,4 +1,3 @@
-import React from "react";
 import { OHLC_DATA_POINTS } from "@/app/Utils/constants";
 
 const OhlcToolTip = ({ currentPrice }: { currentPrice: number[] }) => {

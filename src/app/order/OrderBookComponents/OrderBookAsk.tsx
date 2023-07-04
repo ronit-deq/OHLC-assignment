@@ -1,4 +1,3 @@
-import React from "react";
 import { OrderBookInterface } from "@/app/Utils/Types/constants.type";
 
 const AskSection = ({ asks }: { asks: OrderBookInterface[] }) => {

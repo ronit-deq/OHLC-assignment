@@ -1,15 +1,15 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import OhlcToolTip from "./ChartComponents/OhlcToolTip";
 import SideToolBar from "./ChartComponents/SideToolBar";
 import OhlcHeader from "./ChartComponents/OhlcHeader";
 import CandleStickChart from "./ChartComponents/CandleStickChart";
 import TopIndicatorBar from "./ChartComponents/TopIndicatorBar";
+import candleStickData from "./Services/candleStickData";
 import { INITIAL_TIMEFRAME } from "../Utils/constants";
 import { OHLCValueInterface } from "../Utils/Types/constants.type";
-import candleStickData from "./Services/candleStickData";
 import LoadingScreen from "../LoadingScreen";
 const OhlcFooter = dynamic(() => import("./ChartComponents/OhlcFooter"), {
   ssr: false,

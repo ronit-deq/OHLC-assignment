@@ -1,4 +1,3 @@
-import React from "react";
 import { HiOutlineTrendingUp } from "react-icons/hi";
 import { MdOutlineFormatLineSpacing } from "react-icons/md";
 import { FaPenNib } from "react-icons/fa";

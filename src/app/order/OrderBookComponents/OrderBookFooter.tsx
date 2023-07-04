@@ -1,4 +1,3 @@
-import React from "react";
 import { LuScreenShare } from "react-icons/lu";
 
 const OrderBookFooter = () => {
