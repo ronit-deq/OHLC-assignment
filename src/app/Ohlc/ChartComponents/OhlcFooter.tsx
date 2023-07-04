@@ -33,7 +33,7 @@ const OhlcFooter: React.FC<OhlcFooterProps> = ({ setSelectedItem }) => {
         })}
       </div>
 
-      <div className="flex flex-row footer" color="white">
+      <div className="flex flex-row footer">
         <p className="m-2">{moment().utc().format("hh:mm:ss (UTC)")}</p>
         <p className="m-2">| %</p>
         <p className="m-2">log</p>

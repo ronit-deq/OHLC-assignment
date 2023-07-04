@@ -1,10 +1,10 @@
 import { OrderBookInterface } from "@/app/Utils/Types/constants.type";
-import { updateBids } from "../Services/updateBid";
-import { updateAsks } from "../Services/updateAsk";
+import { updateBids } from "./updateBid";
+import { updateAsks } from "./updateAsk";
 
 type SetOrderBook = React.Dispatch<React.SetStateAction<OrderBookInterface[]>>;
 
-export const OrderBookParser = (
+export const orderBookParser = (
   orderBookData: number[],
   bids: OrderBookInterface[],
   setBids: SetOrderBook,
@@ -17,9 +17,9 @@ export const OrderBookParser = (
     if (amount > 0) {
       const bidObject: OrderBookInterface = {
         price,
-        amount,
+        amount: Math.abs(amount),
         count,
-        total: amount,
+        total: Math.abs(amount),
       };
 
       let bidTotal = 0;

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useWebSocket } from "react-use-websocket/dist/lib/use-websocket";
 import { SOCKET_URL } from "@/app/Utils/constants";
 import { OrderBookInterface } from "@/app/Utils/Types/constants.type";
-import { OrderBookParser } from "./OrderBookParser";
+import { orderBookParser } from "./orderBookParser";
 
 export const useOrderParserHook = () => {
   const [bids, setBids] = useState<OrderBookInterface[]>([]);
@@ -14,10 +14,10 @@ export const useOrderParserHook = () => {
       if (!Array.isArray(orderBookData)) return;
       if (orderBookData?.length > 3) {
         orderBookData.forEach((item: number[]) => {
-          OrderBookParser(item, bids, setBids, asks, setAsks);
+          orderBookParser(item, bids, setBids, asks, setAsks);
         });
       } else if (orderBookData.length === 3) {
-        OrderBookParser(orderBookData, bids, setBids, asks, setAsks);
+        orderBookParser(orderBookData, bids, setBids, asks, setAsks);
       }
     },
   });

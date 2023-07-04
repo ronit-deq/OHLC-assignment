@@ -1,9 +1,9 @@
 "use client";
 
 import React from "react";
-import { useOrderParserHook } from "./useOrderParserHook";
-import BidSection from "./OrderBookBid";
 import AskSection from "./OrderBookAsk";
+import BidSection from "./OrderBookBid";
+import { useOrderParserHook } from "../Services/useOrderParserHook";
 
 const OrderBook = () => {
   const [bids, asks] = useOrderParserHook();

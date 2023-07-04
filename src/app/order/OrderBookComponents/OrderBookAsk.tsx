@@ -18,7 +18,7 @@ const AskSection = ({ asks }: { asks: OrderBookInterface[] }) => {
         >
           <div
             className="progress-red"
-            style={{ width: `${Math.abs(ask.total * 10) / 5}%` }}
+            style={{ width: `${Math.abs(ask.total * 2)}%` }}
           ></div>
           <div className="text-center w-2">{ask.price}</div>
           <div className="text-center w-2">{ask.total.toFixed(4)}</div>

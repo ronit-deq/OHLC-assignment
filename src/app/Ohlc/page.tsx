@@ -9,7 +9,7 @@ import CandleStickChart from "./ChartComponents/CandleStickChart";
 import TopIndicatorBar from "./ChartComponents/TopIndicatorBar";
 import { INITIAL_TIMEFRAME } from "../Utils/constants";
 import { OHLCValueInterface } from "../Utils/Types/constants.type";
-import candleStickDataFetch from "./Services/candleStickData";
+import candleStickData from "./Services/candleStickData";
 import LoadingScreen from "../LoadingScreen";
 const OhlcFooter = dynamic(() => import("./ChartComponents/OhlcFooter"), {
   ssr: false,
@@ -27,10 +27,10 @@ const OhlcChart: React.FC = () => {
 
   const fetchCandleStickData = async () => {
     setIsChartLoading(true);
-    const { data, error } = await candleStickDataFetch(selectedTime);
+    const { data, error } = await candleStickData(selectedTime);
     if (!error) {
-      setCandleSeries([...data]);
       setIsChartLoading(false);
+      setCandleSeries([...data]);
     } else {
       setIsChartLoading(false);
       console.log(`HTTP Response Code: ${error}`);

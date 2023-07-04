@@ -3,7 +3,7 @@ import { apiCall } from '@/app/Utils/apiCall';
 import { endpoints } from '@/app/Utils/endpoint';
 import { TIMEFRAME } from '@/app/Utils/constants';
 
-const candleStickDataFetch = async(selectedTime:string) => {
+const candleStickData = async(selectedTime:string) => {
     const { start, END ,LIMIT} = timeCalculation(selectedTime);      
       
     const API_END_POINT=`${endpoints.candle}:${TIMEFRAME[selectedTime as keyof typeof TIMEFRAME]}:${endpoints.currencyToken}?start=${start}&end=${END}&limit=${LIMIT}`;
@@ -18,9 +18,9 @@ const candleStickDataFetch = async(selectedTime:string) => {
           y: [open, high, low, close],
         };
       });
-      return {data:API_DATA,error:false}
+      return {data:API_DATA,error:null}
     }
     return {data:null,error:error}
 }
 
-export default candleStickDataFetch;
+export default candleStickData;
