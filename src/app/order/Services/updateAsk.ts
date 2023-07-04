@@ -21,5 +21,4 @@ export const updateAsks = (
     }
   });
   return (updatedAsk);
-  // setAsks([...UPDATED_ASKS]);
 };

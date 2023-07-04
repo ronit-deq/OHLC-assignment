@@ -1,53 +1,54 @@
+import {TimeFrame} from "./constants"
 
 const timeCalculation = (selectedTime:string) => {
   let start: number
-  const CURRENT_TIME = Math.floor(+(new Date())/ 1000);
+  const currentTime = Math.floor(+(new Date())/ 1000);
   //lowercase
-  const END = CURRENT_TIME * 1000;
-  const LIMIT=500;
+  const end = currentTime * 1000;
+  const limit=500;
 
   switch (selectedTime) {
-    case "1h":
-      start = (CURRENT_TIME - 3600) * 1000;
+    case TimeFrame.ONE_HOUR:
+      start = (currentTime - 3600) * 1000;
       break;
 
-    case "6h":
-      start = (CURRENT_TIME - 6 * 3600) * 1000;
+    case TimeFrame.SIX_HOURS:
+      start = (currentTime - 6 * 3600) * 1000;
       break;
 
-    case "1d":
-      start = (CURRENT_TIME - 24 * 3600) * 1000;
+    case TimeFrame.ONE_DAY:
+      start = (currentTime - 24 * 3600) * 1000;
       break;
 
-    case "3d":
-      start = (CURRENT_TIME - 3 * 24 * 3600) * 1000;
+    case TimeFrame.THREE_DAYS:
+      start = (currentTime - 3 * 24 * 3600) * 1000;
       break;
 
-    case "7d":
-      start = (CURRENT_TIME - 7 * 24 * 3600) * 1000;
+    case TimeFrame.SEVEN_DAYS:
+      start = (currentTime - 7 * 24 * 3600) * 1000;
       break;
 
-    case "1m":
-      start = (CURRENT_TIME - 30 * 24 * 3600) * 1000;
+    case TimeFrame.ONE_MONTH:
+      start = (currentTime - 30 * 24 * 3600) * 1000;
       break;
 
-    case "3m":
-      start = (CURRENT_TIME - 3 * 30 * 24 * 3600) * 1000;
+    case TimeFrame.THREE_MONTH:
+      start = (currentTime - 3 * 30 * 24 * 3600) * 1000;
       break;
 
-    case "1y":
-      start = (CURRENT_TIME - 365 * 24 * 3600) * 1000;
+    case TimeFrame.ONE_YEAR:
+      start = (currentTime - 365 * 24 * 3600) * 1000;
       break;
 
-    case "3y":
-      start = (CURRENT_TIME - 3 * 365 * 24 * 3600) * 1000;
+    case TimeFrame.THREE_YEAR:
+      start = (currentTime - 3 * 365 * 24 * 3600) * 1000;
       break;
     
     default:
-      start = (CURRENT_TIME - 3600) * 1000;
+      start = (currentTime - 3600) * 1000;
       break;
   }
-  return {start,END,LIMIT}
+  return {start,end,limit}
 }
 
 export default timeCalculation

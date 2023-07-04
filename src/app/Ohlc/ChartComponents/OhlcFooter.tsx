@@ -1,6 +1,6 @@
 import moment from "moment";
 import { Dispatch, SetStateAction } from "react";
-import { TIMEFRAME } from "@/app/Utils/constants";
+import { TIMEMAPPING } from "@/app/Utils/constants";
 
 interface OhlcFooterProps {
   setSelectedItem: Dispatch<SetStateAction<string>>;
@@ -10,7 +10,7 @@ const OhlcFooter: React.FC<OhlcFooterProps> = ({ setSelectedItem }) => {
   return (
     <div className="flex flex-row justify-between mx-10 footer px-5 py-4">
       <div className="flex flex-row justify-around">
-        {Object.keys(TIMEFRAME).map((timeStamp, timeFrameIndex) => {
+        {Object.keys(TIMEMAPPING).map((timeStamp, timeFrameIndex) => {
           return (
             <button
               key={timeFrameIndex}

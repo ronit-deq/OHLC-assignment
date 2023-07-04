@@ -12,9 +12,6 @@ export const orderBookParser = (
   setAsks: SetOrderBook
 ) => {
   const [price, count, amount] = orderBookData;
-  const obj={
-    updateBids
-  }
 
   if (count > 0) {
     if (amount > 0) {

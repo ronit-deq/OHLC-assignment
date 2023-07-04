@@ -5,7 +5,6 @@ export const updateBids = (
   price: number,
   bidTotal: number,
   bids: OrderBookInterface[],
-  // setBids: SetOrderBook,
   bidObject:OrderBookInterface
 ) => {
   const updatedBids: OrderBookInterface[] = [];
@@ -21,5 +20,4 @@ export const updateBids = (
     }
   });
   return updatedBids;
-  // setBids([...UPDATED_BIDS]);
 };
