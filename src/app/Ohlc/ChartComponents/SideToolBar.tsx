@@ -1,4 +1,3 @@
-import React from "react";
 import { HiOutlineTrendingUp } from "react-icons/hi";
 import { MdOutlineFormatLineSpacing } from "react-icons/md";
 import { FaPenNib } from "react-icons/fa";
@@ -7,7 +6,7 @@ import { BsEmojiLaughing, BsMagnet } from "react-icons/bs";
 import { LuRuler } from "react-icons/lu";
 import { AiOutlineZoomIn, AiOutlinePlus } from "react-icons/ai";
 
-const Tools = () => {
+const SideToolBar: React.FC = () => {
   return (
     <div className="flex flex-col justify-around mt-10">
       <AiOutlinePlus className="tool-icon" size={22} />
@@ -23,4 +22,4 @@ const Tools = () => {
   );
 };
 
-export default Tools;
+export default SideToolBar;

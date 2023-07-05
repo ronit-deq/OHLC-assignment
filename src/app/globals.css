@@ -14,9 +14,6 @@
   width: 90vw;
 }
 
-.head2>span{
-  font-weight: bold;
-}
 
 .timeframe-button:focus,.timeframe-button:hover{
   background: #ccc;
@@ -49,10 +46,15 @@
   color: #3C907F;
 }
 
+.activeTimeStamp {
+  background: #ccc;
+  opacity: 0.4;
+  border-radius: 5%;
+}
 
-/* Record Book */
+/* order Book */
 
-.record-book{
+.order-book{
   height: 100vh;
   padding: 10px;
 }
@@ -78,7 +80,39 @@
   opacity: 0.2;
   z-index: -1;
   transition: width .1s ease-in-out;
-
 }
 
 
+
+
+/* Loading Animation */
+
+.loader-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  background-color: #102331;
+  z-index: 1;
+}
+
+.spinner {
+  width: 120px;
+  height: 120px;
+  border: 15px solid;
+  border-color: #f4f4f4 transparent #f4f4f4 transparent;
+  border-radius: 25%;
+  animation: spin-anim 1.2s linear infinite;
+}
+
+@keyframes spin-anim {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

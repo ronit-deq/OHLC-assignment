@@ -1,9 +1,8 @@
-import React from "react";
-import { AiTwotoneSliders, AiOutlineSetting } from "react-icons/ai";
 import { TbMathFunction } from "react-icons/tb";
 import { BsArrowsFullscreen, BsCamera } from "react-icons/bs";
+import { AiTwotoneSliders, AiOutlineSetting } from "react-icons/ai";
 
-const IndicatorBar = () => {
+const TopIndicatorBar: React.FC = () => {
   return (
     <div className="flex justify-between pb-2">
       <div className="flex flex-row mx-2 space-x-2 p-2">
@@ -21,4 +20,4 @@ const IndicatorBar = () => {
   );
 };
 
-export default IndicatorBar;
+export default TopIndicatorBar;

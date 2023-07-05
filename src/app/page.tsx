@@ -1,5 +1,5 @@
 "use client";
-import OhlcChart from "./Ohlc/Ohlcchart/Index";
+import OhlcChart from "./Ohlc/page";
 
 export default function Home() {
   return <OhlcChart />;
